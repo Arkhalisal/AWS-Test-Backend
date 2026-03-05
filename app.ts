@@ -1,31 +1,18 @@
-import express, { Router } from "express";
+import express from "express";
+import initMiddlewares from "./src/middlewares/middlewares";
+import { aiChatbotRoute } from "./src/routes/AIChatbotRoute";
 
 const startServer = async () => {
   const app = express();
 
   const port = process.env.PORT;
 
-  app.use(routeLink());
+  initMiddlewares(app);
+  app.use(aiChatbotRoute());
 
   app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
   });
-};
-
-const routeLink = () => {
-  const route = Router();
-
-  route.get("/", (req, res) => {
-    res.send("Hello World!");
-  });
-
-  route.post("/data", (req, res) => {
-    console.log("Data received:", req.body);
-
-    res.send("Data received!");
-  });
-
-  return route;
 };
 
 startServer();

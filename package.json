@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "bun app.ts"
+    "dev": "bun --hot app.ts"
   },
   "devDependencies": {
     "@types/bun": "latest"
@@ -14,7 +14,10 @@
   },
   "dependencies": {
     "@eslint/js": "^10.0.1",
+    "@openrouter/sdk": "^0.9.11",
+    "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
+    "cors": "^2.8.6",
     "eslint": "^10.0.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
